@@ -102,6 +102,7 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
       },
     }),
     new CopyWebpackPlugin([
+      { from: 'node_modules/babel-polyfill/dist/polyfill.min.js', to: 'polyfill.min.js' },
       { from: 'static/favicon.ico', to: 'favicon.ico' }
     ]),
     ...when(extractCss, new ExtractTextPlugin({

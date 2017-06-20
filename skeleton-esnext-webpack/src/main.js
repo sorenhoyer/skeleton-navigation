@@ -6,7 +6,10 @@ import 'babel-polyfill';
 import * as Bluebird from 'bluebird';
 
 // remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
-Bluebird.config({ warnings: { wForgottenReturn: false } });
+Bluebird.config({
+  longStackTraces: false, // optimizes speed in IE
+  warnings: { wForgottenReturn: false }
+});
 
 export async function configure(aurelia) {
   aurelia.use
